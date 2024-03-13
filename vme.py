@@ -65,8 +65,7 @@ def VME(signal,Alpha,omega_int,fs,tau,tol):
         lamb[n+1,:] = count_lamb()
     
         n = n+1
-    
-        udiff = np.finfo(float).eps
+
 
         udiff = count_udiff(udiff)
     
