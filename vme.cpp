@@ -204,7 +204,6 @@ vector<vector<complex<double>>> VME(vector<double> signal, double Alpha, double 
         omega_d[n+1] = count_omegad();
         lamb[n+1] = count_lamb();
         n = n + 1;
-        udiff = numeric_limits<double>::epsilon();
         complex<double> udiff_buf = count_udiff(udiff);
         udiff = abs(udiff_buf);
     }
