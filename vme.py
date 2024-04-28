@@ -28,7 +28,7 @@ def VME(signal,Alpha,omega_int,fs,tau,tol):
     f_hat_onesided = f_hat
     f_hat_onesided[0:T//2] = 0
 
-    N = 300
+    N = 500
 
     omega_d = zeros([N, 1],dtype=complex)
     omega_d[0] = omega_int/fs
@@ -54,7 +54,6 @@ def VME(signal,Alpha,omega_int,fs,tau,tol):
     def count_udiff(udiff):
         return udiff + (1/T)*np.dot((u_hat_d[n,:]-u_hat_d[n-1,:]), np.conj((u_hat_d[n,:]-u_hat_d[n-1,:])))
     
-    
 
     while(udiff > tol and n < N-1):
     
@@ -66,12 +65,9 @@ def VME(signal,Alpha,omega_int,fs,tau,tol):
     
         n = n+1
 
-
         udiff = count_udiff(udiff)
     
-
         udiff = np.abs(udiff)
-
 
 
     N = min(N,n) - 1
